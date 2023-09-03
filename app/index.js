@@ -24,10 +24,10 @@ const zagolovok = "Облік гуртожитків"
 function createStore() {
     const pool = mysql.createPool({
         connectionLimit: 5,
-        host: "localhost",
+        host: "mysqldb",
         user: "root",
         database: "nuwmhostels",
-        password: ""
+        password: "root"
     });
     global.pool =pool
 }

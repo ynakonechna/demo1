@@ -26,7 +26,7 @@ CREATE TABLE `hostels` (
   PRIMARY KEY (`Id_hostel`),
   KEY `managers` (`Id_manager`),
   CONSTRAINT `managers` FOREIGN KEY (`Id_manager`) REFERENCES `managers` (`Id_manager`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of hostels
@@ -53,7 +53,7 @@ CREATE TABLE `instruction_safety` (
   PRIMARY KEY (`Id_instruction`),
   KEY `managerss` (`Id_manager`),
   CONSTRAINT `managerss` FOREIGN KEY (`Id_manager`) REFERENCES `managers` (`Id_manager`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of instruction_safety
@@ -85,7 +85,7 @@ CREATE TABLE `managers` (
   `parol` varchar(255) NOT NULL DEFAULT '',
   `prava` varchar(255) NOT NULL DEFAULT 'admin',
   PRIMARY KEY (`Id_manager`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of managers
@@ -111,7 +111,7 @@ CREATE TABLE `payment` (
   PRIMARY KEY (`Id_payment`),
   KEY `payment` (`Id_student`),
   CONSTRAINT `payment` FOREIGN KEY (`Id_student`) REFERENCES `students` (`Id_student`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of payment
@@ -139,7 +139,7 @@ CREATE TABLE `profit` (
   PRIMARY KEY (`Id_profit`),
   KEY `profit` (`Id_student`),
   CONSTRAINT `profit` FOREIGN KEY (`Id_student`) REFERENCES `students` (`Id_student`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of profit
@@ -165,7 +165,7 @@ CREATE TABLE `rooms` (
   PRIMARY KEY (`Id_room`),
   KEY `hostels` (`Id_hostel`),
   CONSTRAINT `hostels` FOREIGN KEY (`Id_hostel`) REFERENCES `hostels` (`Id_hostel`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of rooms
@@ -209,7 +209,7 @@ CREATE TABLE `specialties` (
   `code_specialty` varchar(50) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id_specialty`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of specialties
@@ -254,7 +254,7 @@ CREATE TABLE `students` (
   KEY `rooms` (`Id_room`),
   CONSTRAINT `rooms` FOREIGN KEY (`Id_room`) REFERENCES `rooms` (`Id_room`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `specialty` FOREIGN KEY (`Id_specialty`) REFERENCES `specialties` (`Id_specialty`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of students
@@ -286,7 +286,7 @@ CREATE TABLE `students_instruction` (
   KEY `srudents` (`Id_student`),
   CONSTRAINT `instruction` FOREIGN KEY (`Id_instruction`) REFERENCES `instruction_safety` (`Id_instruction`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `srudents` FOREIGN KEY (`Id_student`) REFERENCES `students` (`Id_student`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of students_instruction
@@ -315,7 +315,7 @@ CREATE TABLE `visiting` (
   PRIMARY KEY (`Id_visiting`),
   KEY `students` (`Id_student`),
   CONSTRAINT `students` FOREIGN KEY (`Id_student`) REFERENCES `students` (`Id_student`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of visiting
