@@ -23,10 +23,12 @@ pipeline {
                 dir('db') {
                     sh "docker build -t $ECR_REPO/db:latest ." 
                     sh "docker push $ECR_REPO/db:latest"
+                    sh "docker rmi $ECR_REPO/db:latest"
                 }
                 dir('app') {
                     sh "docker build -t $ECR_REPO/app:latest ." 
                     sh "docker push $ECR_REPO/app:latest"
+                    sh "docker rmi $ECR_REPO/app:latest"
                 }
             }
         }
