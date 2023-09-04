@@ -6,8 +6,14 @@ services:
     container_name: db
     ports: 
     - 3306:3306
+    volumes:
+    - ./mysqldb-data:/var/lib/mysql 
+
   app:
     build: ./app
     container_name: app
     ports: 
     - 3000:3000
+
+volumes:
+  mysqldb-data:  # Volume for MySQL data
