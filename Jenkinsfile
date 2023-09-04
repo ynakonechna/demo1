@@ -47,7 +47,7 @@ pipeline {
                      if (INSTANCE_ID == '') {
                         sh """
                     aws ec2 run-instances \
-    --image-id ami-0c30c3c4ca9a0a146 \
+    --image-id ami-0f38e274f02607378 \
     --count 1 \
     --instance-type t3.micro \
     --key-name j_key \
