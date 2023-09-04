@@ -24,7 +24,7 @@ const zagolovok = "Облік гуртожитків"
 function createStore() {
     const pool = mysql.createPool({
         connectionLimit: 5,
-        host: "mysqldb",
+        host: "db",
         user: "root",
         database: "nuwmhostels",
         password: "root"
