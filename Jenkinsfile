@@ -2,7 +2,7 @@ pipeline {
     agent any
 
      parameters {
-        choice(name: 'choice', choices: ['','build','deploy','destroy'], description: 'choose a value')
+        choice(name: 'choice', choices: ['build','deploy','destroy'], description: 'choose a value')
     }
 
     environment {
