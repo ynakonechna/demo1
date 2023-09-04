@@ -52,7 +52,7 @@ pipeline {
     --instance-type t3.micro \
     --key-name j_key \
     --security-group-ids sg-05e0eaab7ba23bf57 \
-    --iam-instance-profile Name=jenkins
+    --iam-instance-profile Name=jenkins \
     --subnet-id subnet-071874fe08c34005a \
     --block-device-mappings '[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":30,\"DeleteOnTermination\":true}}]' \
     --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=demo-server}]' 'ResourceType=volume,Tags=[{Key=Name,Value=demo-server-disk}]'
@@ -83,9 +83,7 @@ pipeline {
                         ubuntu@${INSTANCE_IP} 'sudo apt-get update' 
                     """
                     sh """
-                    aws ec2 associate-address \
-  --instance-id ${INSTANCE_ID} \
-  --public-ip 13.53.67.167
+                    aws ec2 associate-address --instance-id ${INSTANCE_ID} --public-ip 13.53.67.167
                     """
                 }
             }
