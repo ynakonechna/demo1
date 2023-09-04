@@ -80,10 +80,10 @@ pipeline {
                     sh "aws ec2 wait instance-running --instance-ids ${INSTANCE_ID}"
                     sh """
                         ssh -i ${env.SSH_CREDENTIALS} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-                        ubuntu@${INSTANCE_IP} 'sudo apt-get update' 
+                        ubuntu@${INSTANCE_IP} 'sudo apt-get update && aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 404405619113.dkr.ecr.eu-north-1.amazonaws.com && docker-compose up -d' 
                     """
                     sh """
-                    aws ec2 associate-address --instance-id ${INSTANCE_ID} --public-ip 13.53.67.167
+                        aws ec2 associate-address --instance-id ${INSTANCE_ID} --public-ip 13.53.67.167
                     """
                 }
             }
