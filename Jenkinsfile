@@ -47,7 +47,7 @@ pipeline {
                      if (INSTANCE_ID == '') {
                         sh """
                     aws ec2 run-instances \
-    --image-id ami-08766f81ab52792ce \
+    --image-id ami-0a451140a6d5752c2 \
     --count 1 \
     --instance-type t3.micro \
     --key-name j_key \
@@ -72,7 +72,7 @@ pipeline {
                 }
             }
             steps {
-                sleep(10)
+                sleep(30)
                 script {
                     INSTANCE_ID   = sh(script: """aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=demo-server" --query "Reservations[].Instances[].InstanceId" --output text""", returnStdout: true).trim()
                     INSTANCE_IP   = sh(script: """aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=demo-server" --query "Reservations[].Instances[].PublicIpAddress" --output text""", returnStdout: true).trim()
